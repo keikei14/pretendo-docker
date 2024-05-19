@@ -65,3 +65,9 @@ path = repos/super-mario-maker
 url = https://github.com/PretendoNetwork/super-mario-maker.git
 branch = master
 ignore = dirty
+
+[submodule "repos/pokemon-gen7"]
+path = repos/pokemon-gen7
+url = git@github.com:keikei14/pokemon-gen7.git
+branch = master
+ignore = dirty
