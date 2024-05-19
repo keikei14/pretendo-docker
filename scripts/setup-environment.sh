@@ -76,6 +76,8 @@ echo "PN_MIIVERSE_API_CONFIG_GRPC_ACCOUNT_API_KEY=$account_grpc_api_key" >>./mii
 echo "JUXT_CONFIG_GRPC_ACCOUNT_API_KEY=$account_grpc_api_key" >>./juxtaposition-ui.local.env
 echo "PN_BOSS_CONFIG_GRPC_ACCOUNT_SERVER_API_KEY=$account_grpc_api_key" >>./boss.local.env
 echo "PN_SMM_ACCOUNT_GRPC_API_KEY=$account_grpc_api_key" >>./super-mario-maker.local.env
+echo "PN_POKEGEN7_ACCOUNT_GRPC_API_KEY=$account_grpc_api_key" >>./pokemon-gen7.local.env
+
 
 # Generate a secret key for MinIO
 minio_secret_key=$(generate_password 32)
@@ -91,6 +93,7 @@ postgres_password=$(generate_password 32)
 echo "POSTGRES_PASSWORD=$postgres_password" >>./postgres.local.env
 echo "PN_FRIENDS_CONFIG_DATABASE_URI=postgres://postgres_pretendo:$postgres_password@postgres/friends?sslmode=disable" >>./friends.local.env
 echo "PN_SMM_POSTGRES_URI=postgres://postgres_pretendo:$postgres_password@postgres/super_mario_maker?sslmode=disable" >>./super-mario-maker.local.env
+echo "PN_POKEGEN7_POSTGRES_URI=postgres://postgres_pretendo:$postgres_password@postgres/pokemon-gen7?sslmode=disable" >>./pokemon-gen7.local.env
 
 # Generate a Kerberos password, a gRPC API key, and an AES key for the friends
 # server
@@ -113,6 +116,10 @@ echo "PN_WIIU_CHAT_KERBEROS_PASSWORD=$chat_kerberos_password" >>./wiiu-chat.loca
 smm_kerberos_password=$(generate_password 32)
 echo "PN_SMM_KERBEROS_PASSWORD=$smm_kerberos_password" >>./super-mario-maker.local.env
 
+# Generate a Kerberos password for the pokemon-gen7 server
+pokegen7_kerberos_password=$(generate_password 32)
+echo "PN_POKEGEN7_KERBEROS_PASSWORD=$pokegen7_kerberos_password" >>./pokemon-gen7.local.env
+
 # Generate an AES key for the Miiverse servers
 miiverse_aes_key=$(generate_hex 64)
 echo "PN_MIIVERSE_API_CONFIG_AES_KEY=$miiverse_aes_key" >>./miiverse-api.local.env
@@ -128,6 +135,8 @@ echo "SERVER_IP=$server_ip" >>"$git_base_dir/.env"
 echo "PN_FRIENDS_SECURE_SERVER_HOST=$server_ip" >>./friends.local.env
 echo "PN_WIIU_CHAT_SECURE_SERVER_LOCATION=$server_ip" >>./wiiu-chat.local.env
 echo "PN_SMM_SECURE_SERVER_HOST=$server_ip" >>./super-mario-maker.local.env
+echo "PN_POKEGEN7_SECURE_SERVER_HOST=$server_ip" >>./pokemon-gen7.local.env
+
 
 # Get the Wii U IP address
 if [[ -n "$wiiu_ip" ]]; then

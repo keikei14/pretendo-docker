@@ -416,6 +416,30 @@ services:
       - ./environment/super-mario-maker.env
       - ./environment/super-mario-maker.local.env
 
+  pokemon-gen7:
+    build: ./repos/pokemon-gen7
+    depends_on:
+      - account
+      - postgres
+    restart: unless-stopped
+    ports:
+      # Go delve debugger
+      - 127.0.0.1:2349:2349
+      # Authentication server
+      - 6100:6100/udp
+      # Secure server
+      - 6101:6101/udp
+    volumes:
+      - type: bind
+        source: ./logs/pokemon-gen7/
+        target: /app/log/
+    networks:
+      internal:
+    dns: 172.20.0.200
+    env_file:
+      - ./environment/pokemon-gen7.env
+      - ./environment/pokemon-gen7.local.env
+
 volumes:
   mitmproxy-pretendo-data:
   mongodb-database:

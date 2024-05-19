@@ -2,7 +2,7 @@
 
 set -eu
 
-databases="friends super_mario_maker"
+databases="friends super_mario_maker pokemon-gen7"
 
 for database in $databases; do
     echo "Creating database: $database"

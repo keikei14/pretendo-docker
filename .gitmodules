@@ -69,5 +69,5 @@ ignore = dirty
 [submodule "repos/pokemon-gen7"]
 path = repos/pokemon-gen7
 url = git@github.com:keikei14/pokemon-gen7.git
-branch = master
+branch = main
 ignore = dirty

@@ -84,6 +84,16 @@ async function runAsync() {
         "0".repeat(64)
     );
 
+    await createNexServer(
+        "Pokemon Gen7",
+        "00164800",
+        ["0005000000164800", "0005000000164900", "0005000000164A00"],
+        process.env.SERVER_IP,
+        process.env.POKEGEN7_PORT,
+        1,
+        "0".repeat(64)
+    );
+
     await mongoose.connection.close();
 }
 
