@@ -83,14 +83,13 @@ async function runAsync() {
         1,
         "0".repeat(64)
     );
-
     await createNexServer(
         "Pokemon Gen7",
         "00164800",
-        ["0005000000164800", "0005000000164900", "0005000000164A00"],
+        ["00040000001B5000"],
         process.env.SERVER_IP,
         process.env.POKEGEN7_PORT,
-        1,
+        2,
         "0".repeat(64)
     );
 
